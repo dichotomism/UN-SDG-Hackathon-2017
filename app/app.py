@@ -48,19 +48,12 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         id = 'world-map',
         figure=fig
     ),
-
-    # html.Div([
-    #     dcc.Markdown(
-    #         html.Pre(id = 'click-data', style = styles['pre']))
-    #     ], style = styles['column']),
-
+    
     html.Div([
         dcc.Markdown("""
-            **Click Data**
-
-            Click on points in the graph.
+            You just selected:
         """.replace('    ', '')),
-        html.Pre(id='click-data'),
+        html.H3(id='click-data'),
     ]),
 
 ])
@@ -69,7 +62,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     Output('click-data', 'children'),
     [Input('world-map', 'clickData')])
 def display_click_data(clickData):
-    return json.dumps(clickData, indent=2)
+    return clickData['points'].pop(0)['text']
 
 # @app.callback(
 #     Output('click-data', 'children'),
