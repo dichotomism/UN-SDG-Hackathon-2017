@@ -1,0 +1,16 @@
+# code fragment to replace elements in one vector (value), 
+# based on the values in a second vector (test), 
+# and write them out as a third vector (value2)
+# 
+# Alistair Ramsden, Statistical Analyst, 09-Aug-2017
+
+test <- runif (1000000, min = 0, max = 1)
+test <- round(test)
+test <- as.integer(test)
+value <- runif (1000000, min = 0, max = 1)
+
+value2 <- ifelse (test == 1 , NA, value)
+
+head (test)
+head (value)
+head (value2)
