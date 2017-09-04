@@ -5,6 +5,9 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import json
 
+import nltk
+from nltk.tokenize import word_tokenize, sent_tokenize
+
 import plotly.graph_objs as go
 
 app = dash.Dash()
@@ -71,7 +74,7 @@ app.layout = html.Div(
                 Your topics are:
                 """.replace('    ', '')),
                 html.H3(id = 'topic-selection'),
-            html.H3(id = "country-text")
+            html.H5(id = "country-text")
         ]),
     ])
 
@@ -86,12 +89,16 @@ def update_country_click(clickData):
     dash.dependencies.Output('country-text', 'children'),
     [dash.dependencies.Input('world-map', 'clickData')])
 def update_country_text(dropdown_value):
+    if dropdown_value is not None:
+        value_text = dropdown_value['points'].pop(0)['text']
+    else:
+        value_text = ""
     country_text = (simple_wiki[
-                        simple_wiki.name == dropdown_value['text']]
-                        .clean_summary)
-    return ('Here is a simple description of the country:"{}"'
-                .format(country_text)
-                .replace('    ', ''))
+                        simple_wiki.name == value_text]
+                        .clean_summary
+                        .values[0])
+    return " ".join(
+                sent_tokenize(country_text)[:5])
 
 @app.callback(
     Output('topic-selection', 'children'),
