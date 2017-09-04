@@ -32,8 +32,9 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     }),
 
     dcc.Graph(
-    figure=py.iplot( fig, validate=False, filename='d3-world-map')
-)
+        id = 'world-map',
+        figure=fig
+    )
 ])
 
 if __name__ == '__main__':

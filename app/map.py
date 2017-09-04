@@ -31,7 +31,7 @@ layout = dict(
         showframe = False,
         showcoastlines = False,
         projection = dict(
-            type = 'Mercator'
+            type = 'Robinson'
         )
     )
 )
