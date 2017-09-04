@@ -1,12 +1,15 @@
 import plotly.plotly as py
+import plotly.graph_objs as go
+
+import numpy as np
 import pandas as pd
 
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv')
+df = pd.read_csv('map/country_codes.csv')
 
 data = [ dict(
         type = 'choropleth',
         locations = df['CODE'],
-        z = df['GDP (BILLIONS)'],
+        z = np.ones(len(df)),
         text = df['COUNTRY'],
         colorscale = [[0,"rgb(5, 10, 172)"],[0.35,"rgb(40, 60, 190)"],[0.5,"rgb(70, 100, 245)"],\
             [0.6,"rgb(90, 120, 245)"],[0.7,"rgb(106, 137, 247)"],[1,"rgb(220, 220, 220)"]],
@@ -17,21 +20,16 @@ data = [ dict(
                 color = 'rgb(180,180,180)',
                 width = 0.5
             ) ),
-        colorbar = dict(
-            autotick = False,
-            tickprefix = '$',
-            title = 'GDP<br>Billions US$'),
+        showscale = False,
       ) ]
 
 layout = dict(
-    title = '2014 Global GDP<br>Source:\
-            <a href="https://www.cia.gov/library/publications/the-world-factbook/fields/2195.html">\
-            CIA World Factbook</a>',
+    title = 'Select a country:',
     geo = dict(
         showframe = False,
-        showcoastlines = False,
+        showcoastlines = True,
         projection = dict(
-            type = 'Robinson'
+            type = 'robinson'
         )
     )
 )
