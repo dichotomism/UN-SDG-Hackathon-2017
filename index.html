@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="hack.css">
+
+  <title>UN Global Village</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<!-- Product Name to use navigation bar space at top of page -->
+<body>
+<div class ="navbar">
+<h1 align="center">Global Village</h1>
+</div>
+
+<!-- this will be the form for the user profile -->
+<div class ="profile" id="profile">
+
+<form id="user_profile" action ="./" method="get">
+<h2>About Me</h2>
+<label for=user_name> enter your name</label>
+<input type ="text" name = "user_name" id="user_name" ><br>
+<label for =user_age> enter your age</label>
+<input type ="text" name = "user_age" id = "user_age"><br>
+<label for = user_country> enter where you live</label>
+<input type = "text" name = "user_country" id = "user_country"><br>
+<br><input type ="submit" value ="Send" ><br>
+</form>
+</div>
+ <!-- create the form object-->
+ <script>
+$(".ajax-form").submit(function(){
+ var formObject = objectifyForm($(this).serializeArray());
+	<!--do something with the form object -->
+     return false;
+});
+function objectifyForm(formArray) {
+    returnArray = {};
+    for (var i = 0; i < formArray.length; i++) {
+        returnArray[formArray[i]['name']] = formArray[i]['value'];
+    }
+    return returnArray;
+}
+</script>
+<!-- end user profile-->
+
+<!-- begin topic selections-->
+
+<div class = "wide" id="wide">
+<h2>Select all of the things you would like to know about</h2>
+<form>
+<table>
+<tr>
+<td><button type="button" id="btnSchool" value="School" onclick="button color:#8cff66" />  </td>
+<td><button type="button" id="btnAnimals" value ="Animals"></td>
+<td><button type="button" id="btnHomes" value ="Homes"></td>
+<td><button type="button" id="btnEnergy" value="Energy"></td></tr>
+<tr><td><button type="button" id="btnHelping" value ="Helping"></td>
+<td><button type="button" id="btnPlants" value ="Plants"></td>
+<td><button type="button" id="btnSharing" value ="Sharing"></td>
+<td><button type="button" id="btnShopping" value ="Shopping"></td></tr>
+<tr><td><button type="button" id="btnPoos" value ="Poos"></td>
+<td><button type="button" id="btnFish" value ="Fish"></td><td>
+<button type="button" id="btnGirls" value ="Girls"></td><td>
+<button type="button" id="btnCities" value ="Cities"></td></tr>
+<tr><td><button type="button" id="btnNature" value ="Nature"></td><td>
+<button type="button" id="btnWater" value ="Water"></td><td>
+<button type="button" id="btnWeather" value ="Weather"></td>
+<td><button type="button" id="btnWorking" value ="Working"></td></tr>
+<tr><td><button type="button" id="btnScience" value ="Science"></td><td>
+<button type="button" id="btnElectricity" value ="Electricity"></td>
+<td><button type="button" id="btnHealth" value ="Health"></td><td>
+<button type="button" id="btnBoys" value ="Boys"></td></tr>
+<tr><td><button type="button" id="btnOceans" value ="Oceans"></td><td>
+<button type="button" id="btnPeople" value ="People"></td><td>
+<button type="button" id="btnComputers" value ="Computers"></td></tr>
+</table>
+
+<p>The buttons above activate JavaScript when it is clicked to change the color
+and should activate a js get call to collect topic objects.</p>
+</form>
+
+</div>
+
+
+<footer>
+<p id ='italic'> Great hack forward: Link to demo will go here</p>
+</footer>
+</body>
+</html>

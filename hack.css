@@ -1,0 +1,77 @@
+body{
+	background-color: lightblue;
+	width: 900px;
+	margin: auto;
+}
+
+
+#navbar{
+	width: 500 px;
+	height: 50px;
+	border: 0.5px solid gray;
+	float:auto;
+}
+
+#profile{
+	width: 200px;
+	height: 200px;
+	border: 14 px solid gray;
+	float :left;	
+	margin: 2.5 px;	
+}
+#wide{
+	width: 500px;
+	height: 300px;
+	border:5 px solid gray;
+	padding:2 px;
+	float: right;
+	margin:2px;
+	font-size: 10px;
+}
+
+#half{
+	width: 450 px;	
+	height: 200px;
+	border: 1 px solid gray;
+	float:right;
+	padding: 2 px;
+	
+}
+#map{
+	
+}
+
+#meeples{
+	width:500px;
+	height:150px;
+	border: 1px solid gray;
+	margin: 2 px;
+	clear:both;	
+}
+
+h1{
+	color: gray;
+	text-align: center;
+}
+p{
+	font-family:verdana;
+	font-size: 20 px;
+}
+#italic{
+	font-style: italic;
+	font-size:10px;
+}
+input{
+	width:100%;
+	border: 1px solid blue;
+	border-radius: 3px;
+	padding: 3px;
+}
+input[type=text]{
+	border:0.5px solid blue;
+	color: blue;
+	padding: 4px;
+}
+
+
+
